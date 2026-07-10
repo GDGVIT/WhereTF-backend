@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.routes import search
 from app.routes import upload
 from app.routes import files 
+from app.routes import watch
 
 app = FastAPI(
     title="WhereTF Backend"
@@ -10,6 +11,7 @@ app = FastAPI(
 app.include_router(search.router)
 app.include_router(upload.router)
 app.include_router(files.router)
+app.include_router(watch.router)
 
 @app.get("/health", tags=["System"])
 def health_check():
